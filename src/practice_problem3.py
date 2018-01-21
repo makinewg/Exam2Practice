@@ -2,8 +2,8 @@
 PRACTICE Test 2, practice_problem 3.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and William Makinen.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -64,7 +64,7 @@ def is_prime(n):
     return True
     # ------------------------------------------------------------------
     # Students:
-    #   Do NOT touch the above  is_prime  function - it has no TODO.
+    #   Do NOT touch the above  is_prime  function - it has no TO DO.
     #   Do NOT copy code from this function.
     #
     # Instead, ** CALL ** this function as needed in the problems below.
@@ -153,16 +153,20 @@ def practice_problem3a(circles):
       then this function returns:
         5 x 2 x 7 x 10 x 2, which is 1400.
     Type hints:
-      :type sequence: [rg.Circle]
+      :type circles: [rg.Circle]
     """
     ####################################################################
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   10 minutes.
     ####################################################################
+    total = 1
+    for k in range(len(circles)):
+        total = total*circles[k].center.x
+    return total
 
 
 def run_test_practice_problem3b():
@@ -236,37 +240,30 @@ def practice_problem3b(sequence):
       If the sequence is [12, 33, 18, 'hello', 9, 13, 3, 9],
       this function returns True because the last item (9)
       DOES appear elsewhere in the sequence (namely, at index 4).
-
       If the sequence is [12, 12, 33, 'hello', 5, 33, 5, 9],
       this function returns False because the last item (9)
       does NOT appear elsewhere in the sequence.
-
       If the sequence is (77, 112, 33, 'hello', 0, 43, 5, 77),
       this function returns True because the last item (77)
       DOES appear elsewhere in the sequence (namely, at index 0).
-
       If the sequence is [9], this function returns False
       because the last item (9) does NOT appear elsewhere
       in the sequence.
-
       If the sequence is [12, 33, 8, 'hello', 99, 'hello'],
       this function returns True since the last item ('hello')
       DOES appear elsewhere in the sequence
       (namely, at indices 3 and 5).
-
       If the sequence is ['hello there', 'he', 'lo', 'hello'],
       this function returns False because the last item ('hello')
       does NOT appear elsewhere in the sequence.
-
       If the sequence is 'hello there',
       this function returns True since the last item ('e') DOES
       appear elsewhere in the sequence (namely, at indices 1 and 8).
-
     Type hints:
       :type: sequence: list    or tuple or string
     """
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # IMPLEMENTATION REQUIREMENT:  You are NOT allowed to use the
@@ -278,6 +275,11 @@ def practice_problem3b(sequence):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   8 minutes.
     ####################################################################
+    for k in range(len(sequence)):
+        if sequence[k] == sequence[len(sequence)-1] and k is not len(
+                sequence)-1:
+            return True
+    return False
 
 
 def run_test_practice_problem3c():
@@ -337,30 +339,31 @@ def practice_problem3c(sequence):
       Given sequence (9, 0, 8, 0, 0, 4, 4, 0)
          -- this function returns [1, 3, 4, 7]
               since 0 appears at indices 1, 3, 4, and 7.
-
       Given sequence [9, 9, 9, 9, 0, 9, 9, 9]
          -- this function returns [4]
               since 0 appears only at index 4.
-
       Given sequence (4, 5, 4, 5, 4, 5, 4)
          -- this function returns []
               since none of the items are 0.
-
       Given sequence [0, 0, 0]
          -- this function returns [0, 1, 2]
               since 0 appears at indices 0, 1 and 2.
-
     Type hints:
       :type: sequence: list    or tuple or string
     """
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   8 minutes.
     ####################################################################
+    zeroes = []
+    for k in range(len(sequence)):
+        if sequence[k] == 0:
+            zeroes = zeroes + [k]
+    return zeroes
 
 
 def run_test_practice_problem3d():
@@ -419,47 +422,49 @@ def practice_problem3d(sequence):
       Given sequence (9, 0, 8, 0, 0, 4, 4, 0)
          -- this function returns 1
               since 0 first appears at index 1
-
       Given sequence [9, 9, 9, 9, 0, 9, 9, 9]
          -- this function returns 4
               since 0 first appears at index 4
-
       Given sequence (4, 5, 4, 5, 4, 5, 4)
          -- this function returns -1
               since none of the items are 0.
-
       Given sequence [0, 0, 0]
          -- this function returns 0
               since 0 first appears at index 0
-
     Type hints:
       :type: sequence: list    or tuple or string
     """
     ####################################################################
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   8 minutes for each part of this problem.
     ####################################################################
-
+    for k in range(len(sequence)):
+        if sequence[k] == 0:
+            return k
+    return -1
 
     ####################################################################
-    # TODO: 6. Just ABOVE this TODO, you should have implemented
+    # DONE: 6. Just ABOVE this TO DO, you should have implemented
     #     a solution for the   practice_problem3d   function.
     #     Here, put ANOTHER solution, as follows:
     #
-    #       -- Your FIRST solution (ABOVE this TODO)
+    #       -- Your FIRST solution (ABOVE this TO DO)
     #            should be a solution that IGNORES
     #              practice_problem3c (the previous problem).
     #
-    #       -- Your SECOND solution (BELOW this TODO)
+    #       -- Your SECOND solution (BELOW this TO DO)
     #            should be a solution that USES (calls)
     #              practice_problem3c.
     #
     #          This solution should *** HAVE NO LOOP (no FOR). ***
     ####################################################################
+    zeroes = practice_problem3c(sequence)
+    if len(zeroes) is not 0:
+        return zeroes[0]
 
 
 def run_test_practice_problem3e():
@@ -522,13 +527,18 @@ def practice_problem3e(sequence):
       :type sequence: list(float)    or tuple(float)
     """
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   8 minutes.
     ####################################################################
+    total = 0
+    for k in range(len(sequence)):
+        if k % 2 == 0:
+            total = total + sequence[k]
+    return total
 
 
 # ----------------------------------------------------------------------

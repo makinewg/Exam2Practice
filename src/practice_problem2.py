@@ -2,8 +2,8 @@
 PRACTICE Test 2, practice_problem 2.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and William Makinen.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -42,7 +42,7 @@ def main():
 def run_test_practice_problem2a():
     """ Tests the   practice_problem2a  function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  practice_problem2a  function defined below.
     #   Include at least **   4 reasonable   ** tests.
     #
@@ -55,6 +55,42 @@ def run_test_practice_problem2a():
     print('--------------------------------------------------')
     print('Testing the   practice_problem2a   function:')
     print('--------------------------------------------------')
+    # Test 1
+    expected = [1, 2, 3, 4, 5, 6]
+    actual = practice_problem2a([0, 1, 2, 3, 4, 5], 1)
+    print('Expected:', expected)
+    print('Actual:', actual)
+    if actual == expected:
+        print('Test passed')
+    else:
+        print('Test failed')
+
+    expected = [0, -2, 2]
+    actual = practice_problem2a([-2, -4, 0], 2)
+    print('Expected:', expected)
+    print('Actual:', actual)
+    if actual == expected:
+        print('Test passed')
+    else:
+        print('Test failed')
+
+    expected = [1, 2, 3, 5, 7, 11]
+    actual = practice_problem2a([-1, 0, 1, 3, 5, 9], 2)
+    print('Expected:', expected)
+    print('Actual:', actual)
+    if actual == expected:
+        print('Test passed')
+    else:
+        print('Test failed')
+
+    expected = [10, 11, 12, 13, 14, 15]
+    actual = practice_problem2a([0, 1, 2, 3, 4, 5], 10)
+    print('Expected:', expected)
+    print('Actual:', actual)
+    if actual == expected:
+        print('Test passed')
+    else:
+        print('Test failed')
 
 
 def practice_problem2a(sequence, delta):
@@ -76,13 +112,17 @@ def practice_problem2a(sequence, delta):
       :type delta:    int
     """
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   5 minutes.
     ####################################################################
+    newlist = []
+    for k in range(len(sequence)):
+        newlist = newlist + [sequence[k] + delta]
+    return newlist
 
 
 def run_test_practice_problem2b():
@@ -114,25 +154,18 @@ def run_test_practice_problem2b():
     jokes = """
     Q: What is it called when a cat wins a dog show?
     A: A CAT-HAS-TROPHY!
-
     Q: What do you call a pile of kittens?
     A: a meowntain
-
     Q: Why don't cats like online shopping?
     A: They prefer a cat-alogue.
-
     Q: What did the cat say when he lost all his money?
     A: I'm paw!
-
     Q: Did you hear about the cat who swallowed a ball of yarn?
     A: She had a litter of mittens.
-
     Q: What do you call a lion who has eaten your mother's sister?
     A: An aunt-eater!
-
     Q. How do you know when your cat's done cleaning herself?
     A. She's smoking a cigarette.
-
     source: http://www.jokes4us.com/animaljokes/catjokes.html
     """
     # 5th test: Split  jokes  at spaces to get a list of strings.
@@ -170,13 +203,18 @@ def practice_problem2b(sequence):
       :type sequence [str]
     """
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   10 minutes.
     ####################################################################
+    output = ''
+    for k in range(len(sequence)):
+        if len(sequence[k]) is not 0:
+            output = output + sequence[k][0]
+    return output
 
 
 # ----------------------------------------------------------------------
